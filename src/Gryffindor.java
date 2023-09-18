@@ -1,12 +1,10 @@
-import java.util.Objects;
-
 public class Gryffindor extends hogwarts {
     private int nobility;
     private int honor;
     private int courage;
 
-    public Gryffindor(String name, int spellPower, int transgression, String faculty, int nobility, int honor, int courage) {
-        super(name, spellPower, transgression, faculty);
+    public Gryffindor(String name, int spellPower, int transgression, int nobility, int honor, int courage) {
+        super(name, spellPower, transgression);
         this.nobility = nobility;
         this.honor = honor;
         this.courage = courage;
@@ -16,23 +14,24 @@ public class Gryffindor extends hogwarts {
         return nobility;
     }
 
-    public void setNobility(int nobility) {
-        this.nobility = nobility;
-    }
-
     public int getHonor() {
         return honor;
-    }
-
-    public void setHonor(int honor) {
-        this.honor = honor;
     }
 
     public int getCourage() {
         return courage;
     }
+    @Override
+    public String toString() {
+        return super.toString() +
+                "\n благородство = " + nobility +
+                "\n честь = " + honor +
+                "\n храбрость = " + courage;
+    }
 
-    public void setCourage(int courage) {
-        this.courage = courage;
+    public void compare(Gryffindor gryffindor) {
+        System.out.println((nobility + honor + courage) > (getNobility() + getHonor() + getCourage())?
+                getName() + " лучший Гриффиндорец чем  " + gryffindor.getName():
+                gryffindor.getName() + " лучший Грифиндорец чем " + getName());
     }
 }

@@ -3,8 +3,8 @@ public class Hufflepuff extends hogwarts {
     private int loyal;
     private int honest;
 
-    public Hufflepuff(String name, int spellPower, int transgression, String faculty, int hardworking, int loyal, int honest) {
-        super(name, spellPower, transgression, faculty);
+    public Hufflepuff(String name, int spellPower, int transgression, int hardworking, int loyal, int honest) {
+        super(name, spellPower, transgression);
         this.hardworking = hardworking;
         this.loyal = loyal;
         this.honest = honest;
@@ -14,23 +14,25 @@ public class Hufflepuff extends hogwarts {
         return hardworking;
     }
 
-    public void setHardworking(int hardworking) {
-        this.hardworking = hardworking;
-    }
-
     public int getLoyal() {
         return loyal;
-    }
-
-    public void setLoyal(int loyal) {
-        this.loyal = loyal;
     }
 
     public int getHonest() {
         return honest;
     }
+@Override
+    public String toString() {
+        return super.toString() + "Hufflepuff{" +
+                "hardworking=" + hardworking +
+                ", loyal=" + loyal +
+                ", honest=" + honest +
+                '}';
+    }
 
-    public void setHonest(int honest) {
-        this.honest = honest;
+    public void compare(Hufflepuff hufflepuff) {
+        System.out.println((hardworking + loyal + honest) > (getHardworking() + getLoyal() + getHonest()) ?
+                getName() + "обладает большей силой чем " + hufflepuff.getName() :
+                getName() + "лучший Грифиндорец чем " + hufflepuff.getName());
     }
 }
